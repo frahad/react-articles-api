@@ -14,5 +14,5 @@
 $router->group(['prefix' => 'api'], function ($router) {
     $router->get('articles', 'ArticleController@index');
     $router->post('articles', 'ArticleController@store');
-    $router->get('articles/{article}', 'ArticleController@show');
+    $router->get('articles/{id}', 'ArticleController@show');
 });

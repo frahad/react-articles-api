@@ -12,8 +12,9 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'author',
         'title',
+        'author',
+        'thumbnail',
         'content',
     ];
 

@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     /**
+     * The resources per page.
+     *
      * @var int
      */
     protected static $perPage = 15;
 
     /**
+     * Display a paginated list of articles.
+     *
      * @param  Request  $request
      * @return Response
      */
@@ -23,14 +27,17 @@ class ArticleController extends Controller
     }
 
     /**
+     * Store a new article.
+     *
      * @param  Request  $request
      * @return Response
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'author' => 'required|string|max:255',
             'title' => 'required|string|max:150',
+            'author' => 'required|string|max:255',
+            'thumbnail' => 'required|url|max:255',
             'content' => 'required|string|max:3500',
         ]);
 
@@ -38,13 +45,14 @@ class ArticleController extends Controller
     }
 
     /**
+     * Show the given article.
+     *
      * @param  Request  $request
-     * @param  string  $article
+     * @param  int  $id
      * @return Response
      */
-    public function show(Request $request, string $article)
+    public function show(Request $request, int $id)
     {
-        return Article::whereSlug($article)
-            ->first();
+        return Article::findOrFail($id);
     }
 }
