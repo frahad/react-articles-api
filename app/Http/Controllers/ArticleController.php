@@ -38,7 +38,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:150',
             'author' => 'required|string|max:255',
             'thumbnail' => 'required|url|max:255',
-            'content' => 'required|string|max:3500',
+            'content' => 'required|string|min:500|max:3500',
         ]);
 
         return Article::create($request->all());
