@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     /**
-     * The resources per page.
+     * The number of items per page.
      *
      * @var int
      */
