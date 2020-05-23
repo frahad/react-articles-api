@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -19,12 +20,14 @@ class Article extends Model
     ];
 
     /**
+     * Generates an unique identifier for the article.
+     *
      * @param  string  $value
      * @return void
      */
     public function setTitleAttribute(string $value)
     {
         $this->attributes['title'] = $value;
-        $this->attributes['slug'] = str_slug($value);
+        $this->attributes['slug'] = Str::slug($value);
     }
 }
