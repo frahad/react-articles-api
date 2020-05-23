@@ -24,19 +24,20 @@ $ composer install
 
 4. Create the database:
 
-```
+```sql
 create database articles;
 ```
 
 5. Generate a random app key then configure the database connection at `.env` file:
 
-```
+```shell
 $ cp .env.example .env
 $ php -r "require 'vendor/autoload.php'; echo base64_encode(str_random(32)).PHP_EOL;"
 
 # NndiN2xDNDJJaDdHZ0pFOXo4YjRhNkZtcU5oQk1RNGc=
 ```
 
+**.env**
 ```
 APP_KEY=NndiN2xDNDJJaDdHZ0pFOXo4YjRhNkZtcU5oQk1RNGc=
 
@@ -65,9 +66,9 @@ $ php -S localhost:8000 -t ./public
 | Method | Route                | Description                               |
 | ------ | -------------------- | ----------------------------------------- |
 | GET    | `/api/articles`      | Display a paginated list of articles.     |
+| POST   | `/api/articles`      | Store a newly created article in storage. |
 | GET    | `/api/articles/{id}` | Display a specific article.               |
-| POST   | `/articles`          | Store a newly created article in storage. |
 
 ### Third-party libraries
 
-- `barryvdh/laravel-cors` to add CORS (Cross-Origin Resource Sharing) headers support to the application.
+- `fruitcake/laravel-cors` to add CORS (Cross-Origin Resource Sharing) headers support to the application.
